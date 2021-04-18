@@ -1,6 +1,6 @@
 #MODULOS-----------------------------------
 import sys
-
+import math #para el mcd
 
 
 
@@ -197,7 +197,15 @@ def codLetraDeMsjNumericoCifrado(msjNumericoCifrado, alfyCodNca):
 
     return msjFinal
 
-
+def verificarSiInversible(a, b, modulo):
+    #Si el número es primo con el módulo, tiene inverso en el módulo -> mcd()=1
+    testigo = False
+    mcda = math.gcd(a, modulo)
+    
+    if mcda == 1:  #cumpliendo que el máximo común divisor de a con el módulo N sea uno
+        testigo = True
+    
+    return testigo
     
 
 
@@ -261,6 +269,12 @@ b = input()
 
 a = int(a)
 b = int(b)
+
+
+inversible = verificarSiInversible(a, b, modulo)
+if inversible == False:
+    print("ERROR La clave de cifrado no es inversible en Z módulo", modulo)
+    exit()
 
 
 listaCN = codNumericaDeMsjEnClaro(msjClaro, alfyCodNca)
