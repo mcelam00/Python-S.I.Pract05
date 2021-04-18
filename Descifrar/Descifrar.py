@@ -214,11 +214,10 @@ def codLetraDeMsjNumericoDesCifrado(caracterDesCifrado, alfyCodNca):
 
 def verificarSiInversible(a, b, modulo):
     #Si el número es primo con el módulo, tiene inverso en el módulo -> mcd()=1
-    inversible = False
+    testigo = False
     mcda = math.gcd(a, modulo)
-    mcdb = math.gcd(b, modulo)
-
-    if mcda == 1 & mcdb == 1:
+    
+    if mcda == 1:  #cumpliendo que el máximo común divisor de a con el módulo N sea uno
         testigo = True
     
     return testigo
